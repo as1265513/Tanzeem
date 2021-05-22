@@ -1,7 +1,11 @@
+import {Dimensions} from 'react-native'
+
+const {height,width} = Dimensions.get('screen');
+
 export const Theme = {
     colors: {
-      primaryColor: "#39c526",
-      primaryColorDark: "#2db074",
+      primaryColor: "#48bd63",
+      primaryColorDark: "#ffffff",
       textColor: "#323232",
       black: "#000000",
       gray: "gray",
@@ -9,8 +13,8 @@ export const Theme = {
       lightgray: "lightgray",
       green: "#2db074",
       red: '#D73019',
-      yellow: "#2db074",
-      yellowDark: "#2db074",
+      yellow: "#f7fa39",
+      yellowDark: "#cdcf67",
       _yellow: "#EEAE1A",
       windowBackground: "#f9fbfc",
       navbarActiveColor: "#2db074",
@@ -24,6 +28,11 @@ export const Theme = {
       boxBorderRadius: 12,
       inputHeight: 50,
       separatorSize: 12,
+      HorizentalMargin:20,
+      verticalMargin:5,
+      height,
+      width,
+
     },
     
   };
