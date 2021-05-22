@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
-import { View, Text , StyleSheet,SafeAreaView,Platform } from 'react-native'
+import { View, Text , StyleSheet,SafeAreaView,Platform,Image } from 'react-native'
+import {Theme} from '../../Theme/Theme'
 
 export default function SplashScreen() {
     
@@ -8,10 +9,10 @@ export default function SplashScreen() {
             <View style={styles.UpperContainer} />
 
             <View style={styles.middleContainer}>
-
+            <Image source={require("./../../assets/Tanzeem.jpeg")} style={styles.logoStyle} />
             </View>
 
-            <View style={styles.LowerContainer} />
+            <View style={styles.FooterContainer} />
             
         </View>
     )
@@ -27,6 +28,26 @@ const styles = StyleSheet.create({
         })
     },
     UpperContainer:{
-        
+        flex:1,
+        backgroundColor:Theme.colors.primaryColor,
+        borderBottomLeftRadius:30,
+        borderBottomRightRadius:30
+    },
+    middleContainer:{
+        flex:3,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    FooterContainer:{
+        flex:1,
+        backgroundColor:Theme.colors.black,
+        borderTopLeftRadius:30,
+        borderTopRightRadius:30,
+    },
+    logoStyle:{
+        height:250,
+        width:250,
+        backgroundColor:Theme.colors.windowBackground
     }
+
 })
