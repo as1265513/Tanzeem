@@ -1,7 +1,14 @@
+
 import React, {useState,useEffect} from 'react';
 import { View, Text,StyleSheet,Image, TextInput} from 'react-native';
 import { TouchableOpacity , Button , Dimensions } from 'react-native';
+
 import { Theme } from '../../Theme/Theme';
+
+import { Zocial } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
 
 export default function Login() {
     return (
@@ -22,22 +29,27 @@ export default function Login() {
                </View>
 
                <View style={styles.Form_part}>
-                    <Text style={styles.Email_Text}>Email:</Text>
+
+                    <Text style={styles.Email_Text}>E-mail:</Text>
                         <View styles={styles.Email_action}>
-                        <TextInput
-                        placeholder="Enter Your Name"
-                        style={styles.Text_Input} 
-                        autoCapitalize="none"    
-                        /> 
+                            <Zocial name="email" size={24} color="black" />
+                            <TextInput
+                            placeholder="Enter Your E-mail"
+                            style={styles.Text_Input} 
+                            autoCapitalize="none"    
+                            /> 
                         </View>
+
                      <Text style={styles.Pass_Text}>Password:</Text>
                         <View styles={styles.Pass_action}>
+                        <FontAwesome name="lock" size={24} color="black" />
                         <TextInput
                         placeholder="Enter Your Password"
                         style={styles.Pass_Input} 
                         autoCapitalize="none"    
                         /> 
                         </View>
+
                </View>
              </View>
 
@@ -51,9 +63,11 @@ export default function Login() {
                   
                     <View style={styles.SignBtnText_View}>
                            <Text  style={styles.SignIn_text}> Sign in</Text>
+                          
                                <View style={styles.SignButton_View}>
+                             
                                     <TouchableOpacity style={styles.Button} >
-                                        <Text style={styles.buttonText}>go</Text>
+                                         <FontAwesome style={styles.buttonText} name="arrow-right" size={28} color="white" />
                                     </TouchableOpacity>           
                                </View>
                     </View>
@@ -126,10 +140,13 @@ const styles = StyleSheet.create({
     Email_Text:{
         fontSize:20,
         fontWeight:'bold',
-        marginBottom:10
+        marginBottom:10,
+        borderRadius:5,
+
     },
 
     Email_action:{
+        flex:2,
         flexDirection:'row',
         marginTop:5,
         borderRadius:5,
@@ -138,7 +155,7 @@ const styles = StyleSheet.create({
     },
      Text_Input:{
         height:40,
-        width:'90%',
+        width:'100%',
         paddingLeft:20,
         paddingTop:5,
         paddingBottom:3,
@@ -167,7 +184,7 @@ const styles = StyleSheet.create({
     
     Pass_Input:{
         height:40,
-        width:'90%',
+        width:'100%',
         paddingLeft:20,
         paddingTop:5,
         paddingBottom:3,
@@ -241,7 +258,7 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center',
       fontWeight:'bold',
-      fontSize:20,
+      fontSize:27,
       padding:15,
       paddingLeft:20,
     },
