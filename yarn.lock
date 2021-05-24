@@ -765,7 +765,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.12.13"
 
-"@babel/plugin-transform-object-assign@^7.0.0", "@babel/plugin-transform-object-assign@^7.10.4":
+"@babel/plugin-transform-object-assign@^7.0.0":
   "integrity" "sha512-4QxDMc0lAOkIBSfCrnSGbAJ+4epDBF2XXwcLXuBcG1xl9u7LrktNVD4+LwhL47XuKVPQ7R25e/WdcV+h97HyZA=="
   "resolved" "https://registry.yarnpkg.com/@babel/plugin-transform-object-assign/-/plugin-transform-object-assign-7.12.13.tgz"
   "version" "7.12.13"
@@ -1848,9 +1848,6 @@
   dependencies:
     "event-target-shim" "^5.0.0"
 
-"abs-svg-path@^0.1.1":
-  "version" "0.1.1"
-
 "absolute-path@^0.0.0":
   "integrity" "sha1-p4di+9rftSl76ZsV01p4Wy8JW/c="
   "resolved" "https://registry.yarnpkg.com/absolute-path/-/absolute-path-0.0.0.tgz"
@@ -2200,9 +2197,6 @@
   "integrity" "sha1-4Fpj95amwf8l9Hcex62twUjAcjM="
   "resolved" "https://registry.yarnpkg.com/bmp-js/-/bmp-js-0.1.0.tgz"
   "version" "0.1.0"
-
-"boolbase@^1.0.0", "boolbase@~1.0.0":
-  "version" "1.0.0"
 
 "bplist-creator@0.0.8":
   "integrity" "sha512-Za9JKzD6fjLC16oX2wsXfc+qBEhJBJB1YPInoAQpMLhDuj5aVOv1baGeIQSq1Fr3OCqzvsoQcSBSwGId/Ja2PA=="
@@ -2655,11 +2649,6 @@
     "loose-envify" "^1.3.1"
     "object-assign" "^4.1.1"
 
-"cross-fetch@^3.0.4":
-  "version" "3.1.4"
-  dependencies:
-    "node-fetch" "2.6.1"
-
 "cross-spawn@^5.1.0":
   "integrity" "sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk="
   "resolved" "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz"
@@ -2692,23 +2681,6 @@
   dependencies:
     "hyphenate-style-name" "^1.0.2"
     "isobject" "^3.0.1"
-
-"css-select@^2.1.0":
-  "version" "2.1.0"
-  dependencies:
-    "boolbase" "^1.0.0"
-    "css-what" "^3.2.1"
-    "domutils" "^1.7.0"
-    "nth-check" "^1.0.2"
-
-"css-tree@^1.0.0-alpha.39":
-  "version" "1.1.3"
-  dependencies:
-    "mdn-data" "2.0.14"
-    "source-map" "^0.6.1"
-
-"css-what@^3.2.1":
-  "version" "3.4.2"
 
 "dayjs@^1.8.15":
   "integrity" "sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw=="
@@ -2809,28 +2781,10 @@
   "resolved" "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz"
   "version" "1.0.4"
 
-"dom-serializer@0":
-  "version" "0.2.2"
-  dependencies:
-    "domelementtype" "^2.0.1"
-    "entities" "^2.0.0"
-
 "dom-walk@^0.1.0":
   "integrity" "sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w=="
   "resolved" "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.2.tgz"
   "version" "0.1.2"
-
-"domelementtype@^2.0.1":
-  "version" "2.2.0"
-
-"domelementtype@1":
-  "version" "1.3.1"
-
-"domutils@^1.7.0":
-  "version" "1.7.0"
-  dependencies:
-    "dom-serializer" "0"
-    "domelementtype" "1"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -2870,9 +2824,6 @@
   "version" "1.4.4"
   dependencies:
     "once" "^1.4.0"
-
-"entities@^2.0.0":
-  "version" "2.2.0"
 
 "envinfo@^7.7.2":
   "integrity" "sha512-/o+BXHmB7ocbHEAs6F2EnG0ogybVVUdkRunTT2glZU9XAaGmhqskrvKwqXuDfNjEO0LZKWdejEEpnq8aM0tOaw=="
@@ -3182,17 +3133,6 @@
     "core-js" "^2.4.1"
     "fbjs-css-vars" "^1.0.0"
     "isomorphic-fetch" "^2.1.1"
-    "loose-envify" "^1.0.0"
-    "object-assign" "^4.1.0"
-    "promise" "^7.1.1"
-    "setimmediate" "^1.0.5"
-    "ua-parser-js" "^0.7.18"
-
-"fbjs@^3.0.0":
-  "version" "3.0.0"
-  dependencies:
-    "cross-fetch" "^3.0.4"
-    "fbjs-css-vars" "^1.0.0"
     "loose-envify" "^1.0.0"
     "object-assign" "^4.1.0"
     "promise" "^7.1.1"
@@ -3783,7 +3723,6 @@
     "@jest/types" "^24.9.0"
     "anymatch" "^2.0.0"
     "fb-watchman" "^2.0.0"
-    "fsevents" "^1.2.7"
     "graceful-fs" "^4.1.15"
     "invariant" "^2.2.4"
     "jest-serializer" "^24.9.0"
@@ -3943,8 +3882,6 @@
   "integrity" "sha1-NzaitCi4e72gzIO1P6PWM6NcKug="
   "resolved" "https://registry.yarnpkg.com/jsonfile/-/jsonfile-2.4.0.tgz"
   "version" "2.4.0"
-  dependencies:
-    "graceful-fs" "^4.1.6"
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
@@ -3952,8 +3889,6 @@
   "integrity" "sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss="
   "resolved" "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz"
   "version" "4.0.0"
-  dependencies:
-    "graceful-fs" "^4.1.6"
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
@@ -3962,7 +3897,6 @@
   "resolved" "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.1.0.tgz"
   "version" "6.1.0"
   dependencies:
-    "graceful-fs" "^4.1.6"
     "universalify" "^2.0.0"
   optionalDependencies:
     "graceful-fs" "^4.1.6"
@@ -4019,8 +3953,6 @@
   "integrity" "sha1-QIhDO0azsbolnXh4XY6W9zugJDk="
   "resolved" "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz"
   "version" "1.3.1"
-  dependencies:
-    "graceful-fs" "^4.1.9"
   optionalDependencies:
     "graceful-fs" "^4.1.9"
 
@@ -4197,9 +4129,6 @@
   "version" "3.2.3"
   dependencies:
     "buffer-alloc" "^1.1.0"
-
-"mdn-data@2.0.14":
-  "version" "2.0.14"
 
 "merge-stream@^1.0.1":
   "integrity" "sha1-QEEgLVCKNCugAXQAjfDCUbjBNeE="
@@ -4528,9 +4457,6 @@
   dependencies:
     "minimist" "^1.2.5"
 
-"mockdate@^3.0.2":
-  "version" "3.0.5"
-
 "ms@2.0.0":
   "integrity" "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
   "resolved" "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz"
@@ -4591,7 +4517,7 @@
     "encoding" "^0.1.11"
     "is-stream" "^1.0.1"
 
-"node-fetch@^2.2.0", "node-fetch@^2.6.0", "node-fetch@2.6.1":
+"node-fetch@^2.2.0", "node-fetch@^2.6.0":
   "integrity" "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
   "resolved" "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz"
   "version" "2.6.1"
@@ -4628,22 +4554,12 @@
   dependencies:
     "remove-trailing-separator" "^1.0.1"
 
-"normalize-svg-path@^1.0.1":
-  "version" "1.1.0"
-  dependencies:
-    "svg-arc-to-cubic-bezier" "^3.0.0"
-
 "npm-run-path@^2.0.0":
   "integrity" "sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8="
   "resolved" "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz"
   "version" "2.0.2"
   dependencies:
     "path-key" "^2.0.0"
-
-"nth-check@^1.0.2":
-  "version" "1.0.2"
-  dependencies:
-    "boolbase" "~1.0.0"
 
 "nullthrows@^1.1.1":
   "integrity" "sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw=="
@@ -4869,9 +4785,6 @@
   "version" "2.1.0"
   dependencies:
     "pngjs" "^3.3.0"
-
-"parse-svg-path@^0.1.2":
-  "version" "0.1.2"
 
 "parseurl@~1.3.3":
   "integrity" "sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ=="
@@ -5110,14 +5023,6 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
-"react-native-reanimated@>=2.0.0-rc.0":
-  "version" "2.1.0"
-  dependencies:
-    "@babel/plugin-transform-object-assign" "^7.10.4"
-    "fbjs" "^3.0.0"
-    "mockdate" "^3.0.2"
-    "string-hash-64" "^1.0.3"
-
 "react-native-safe-area-context@3.2.0":
   "integrity" "sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA=="
   "resolved" "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz"
@@ -5138,7 +5043,9 @@
     "prop-types" "^15.6.0"
     "react-timer-mixin" "^0.13.4"
 
-"react-native@*", "react-native@>=0.50.0", "react-native@>=0.57", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz":
+"react-native@*", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz":
+  "integrity" "sha512-3jHI2YufrJi7eIABRf/DN/I2yOkmIZ0vAyezTz+PAUJiEs4v//5LLojWEU+W53AZsnuaEMcl/4fVy4bd+OuUbA=="
+  "resolved" "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz"
   "version" "0.63.2"
   dependencies:
     "@babel/runtime" "^7.0.0"
@@ -5179,7 +5086,7 @@
   "resolved" "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
 
-"react@*", "react@^16.0", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>=16.5.1", "react@16.13.1":
+"react@*", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>=16.5.1", "react@16.13.1":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
@@ -5649,9 +5556,6 @@
   "resolved" "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz"
   "version" "0.6.1"
 
-"source-map@^0.6.1":
-  "version" "0.6.1"
-
 "source-map@^0.7.3":
   "integrity" "sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ=="
   "resolved" "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz"
@@ -5717,9 +5621,6 @@
   "version" "1.1.1"
   dependencies:
     "safe-buffer" "~5.1.0"
-
-"string-hash-64@^1.0.3":
-  "version" "1.0.3"
 
 "string-width@^2.1.0":
   "integrity" "sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw=="
@@ -5798,9 +5699,6 @@
   "version" "7.2.0"
   dependencies:
     "has-flag" "^4.0.0"
-
-"svg-arc-to-cubic-bezier@^3.0.0":
-  "version" "3.2.0"
 
 "temp-dir@^1.0.0":
   "integrity" "sha1-CnwOom06Oa+n4OvqnB/AvE2qAR0="
