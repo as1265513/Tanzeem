@@ -9,7 +9,7 @@ export default function SplashScreen() {
             <View style={styles.UpperContainer} />
 
             <View style={styles.middleContainer}>
-            <Image source={require("./../../assets/Tanzeem.jpeg")} style={styles.logoStyle} />
+            <Image source={require("./../../assets/Tanzeem.png")} style={styles.logoStyle} />
             </View>
 
             <View style={styles.FooterContainer} />
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     logoStyle:{
         height:250,
         width:250,
-        backgroundColor:Theme.colors.windowBackground
+        backgroundColor:Theme.colors.White
     }
 
 })

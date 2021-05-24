@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SplashScreen from './src/SplashScreen/SplashScreen'
 import Login from './src/Login/Login'
+import Signup from './src/Signup/Signup';
 
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
     if(!active)
     return <SplashScreen />
     else 
-    return <Login />
+    return <Signup />
 }
 
 const styles = StyleSheet.create({
