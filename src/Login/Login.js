@@ -28,7 +28,7 @@ export default function Login() {
                      <Image source={require("./../../assets/Tanzeem.jpeg")} style={styles.logoStyle} />
                </View>
 
-               <View style={styles.Form_part}>
+                <View style={styles.Form_part}>
 
                     <Text style={styles.Email_Text}>E-mail:</Text>
                         <View styles={styles.Email_action}>
@@ -50,7 +50,8 @@ export default function Login() {
                         /> 
                         </View>
 
-               </View>
+               </View> 
+
              </View>
 
                  <View style={styles.footerContainer} >
@@ -132,9 +133,9 @@ const styles = StyleSheet.create({
     },
     
     Form_part:{
-        height:'60%',
+        height:'70%',
         width:'70%',
-
+      
     },
 
     Email_Text:{
@@ -144,23 +145,15 @@ const styles = StyleSheet.create({
         borderRadius:5,
 
     },
-
-    Email_action:{
-        flex:2,
-        flexDirection:'row',
-        marginTop:5,
-        borderRadius:5,
-        borderColor:Theme.colors.black,
-        paddingBottom:3   
-    },
      Text_Input:{
+         
         height:40,
         width:'100%',
         paddingLeft:20,
         paddingTop:5,
         paddingBottom:3,
         borderColor:Theme.colors.lightgray,
-        marginLeft:10,
+        marginLeft:5,
         marginTop:5,
         borderWidth:1,
         borderRadius:15
