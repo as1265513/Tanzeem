@@ -28,7 +28,7 @@ export default function Login() {
                      <Image source={require("./../../assets/Tanzeem.jpeg")} style={styles.logoStyle} />
                </View>
 
-                <View style={styles.Form_part}>
+               <View style={styles.Form_part}>
 
                     <Text style={styles.Email_Text}>E-mail:</Text>
                         <View styles={styles.Email_action}>
@@ -50,7 +50,7 @@ export default function Login() {
                         /> 
                         </View>
 
-               </View> 
+               </View>
 
              </View>
 
