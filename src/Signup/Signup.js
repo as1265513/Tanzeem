@@ -27,6 +27,7 @@ export default function Signup() {
     const [Address,setAddress] =useState("")
     const [secureTextEntry,setsScureTextEntry] =useState(true)
     const [secureTextEntry1,setsScureTextEntry1] =useState(true)
+    const [KeyboardAvoiding,setKeyboardAvoiding] =  useState(false)
 
     
 
@@ -41,8 +42,10 @@ export default function Signup() {
         />
       </View>
       <KeyboardAvoidingView
-       behavior={Platform.OS === "ios" ? "padding" : "position"} 
-            style={styles.formContainer}>
+       behavior={Platform.OS === "ios" ? "padding" : "height"} 
+            style={styles.formContainer}
+            enabled={KeyboardAvoiding}
+            >
         
         <Input 
         firstIconName="person-outline" 
@@ -89,10 +92,8 @@ export default function Signup() {
         placeholder="Enter you Phone Number"
         margintop={10}
         value={Phone}
-        secureTextEntry={secureTextEntry1}
         onChange={(text)=>setPhone(text)}
-        ndIcon={secureTextEntry1?"eye-outline":"eye-off-outline"}
-        secure={secureTextEntry1}
+        
         setSecure={setsScureTextEntry1}
          />
 
@@ -147,9 +148,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   formContainer: {
-    paddingVertical:10,
- 
-  
+    paddingBottom:10,
     backgroundColor: Theme.colors.windowBackground,
     // position: "absolute",
     width: Theme.sizes.width - 40,
