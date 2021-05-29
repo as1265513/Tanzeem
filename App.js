@@ -9,7 +9,7 @@ import Login from "./src/Login/Login";
 
   const App = () => {
                     return (
-                   <NavigationContainer>
+                   <NavigationContainer>  
                     <MainStackNavigator/>  
                   </NavigationContainer> 
                   );
