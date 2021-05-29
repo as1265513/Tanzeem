@@ -25,7 +25,7 @@ export default function Login() {
             <View style={styles.middleContainer}>
 
                <View style={styles.logoView}> 
-                     <Image source={require("./../../assets/Tanzeem.jpeg")} style={styles.logoStyle} />
+                     <Image source={require("./../../assets/Tanzeem.png")} style={styles.logoStyle} />
                </View>
 
                <View style={styles.Form_part}>
