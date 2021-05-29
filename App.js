@@ -1,25 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useState,useEffect} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SplashScreen from './src/SplashScreen/SplashScreen'
-import Login from './src/Login/Login'
-import Signup from './src/Signup/Signup';
+import 'react-native-gesture-handler';
+import React, {Component,useEffect} from 'react';
+import { StyleSheet} from 'react-native';
+
+import { NavigationContainer } from "@react-navigation/native";
+import { MainStackNavigator } from "./Navigation/StackNavigation";
+import Login from "./src/Login/Login";
 
 
-export default function App() {
-  const [active,setActive] = useState(false)
-    useEffect(() => {
-
-        setTimeout(() => {
-            setActive(true)
-        }, 5000);
-    }, [])
-    if(!active)
-    return <SplashScreen />
-    else 
-    return <Signup />
-}
-
+  const App = () => {
+                    return (
+                   <NavigationContainer>
+                    <MainStackNavigator/>  
+                  </NavigationContainer> 
+                  );
+ } ;
+                 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,3 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+
+
+export default App;

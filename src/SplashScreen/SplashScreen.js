@@ -1,23 +1,50 @@
-import React,{useEffect,useState} from 'react'
-import { View, Text , StyleSheet,SafeAreaView,Platform,Image } from 'react-native'
-import {Theme} from '../../Theme/Theme'
+import React , { Component} from 'react';
+import { 
+View,
+Text , 
+StyleSheet,
+Platform,Image,
+ActivityIndicator
+} from 'react-native';
 
-export default function SplashScreen() {
-    
-    return (
-        <View style={styles.Container}>
-            <View style={styles.UpperContainer} />
+import Login from "../Login/Login";
+import {Theme} from '../../Theme/Theme';
 
-            <View style={styles.middleContainer}>
-            <Image source={require("./../../assets/Tanzeem.png")} style={styles.logoStyle} />
+
+export default class SplashScreen extends Component {
+
+      constructor(props)  
+      {
+           super(props);
+           setTimeout(()=>
+           {
+               this.props.navigation.navigate("Login");
+           },5000); 
+
+      }
+                render(){
+
+                    
+                    return  (
+                        <View style={styles.Container}>
+                            <View style={styles.UpperContainer} />
+
+                            <View style={styles.middleContainer}>
+                                <Image source={require("./../../assets/Tanzeem.png")} style={styles.logoStyle} />
+                        <ActivityIndicator
+                        animating={animating}
+                        color="#FFFFFF"
+                        size="large"
+                        style={styles.activityIndicator}
+                        />  
             </View>
 
             <View style={styles.FooterContainer} />
             
         </View>
-    )
+    );
+   }
 }
-
 const styles = StyleSheet.create({
     Container:{
         flex:1,
@@ -51,3 +78,4 @@ const styles = StyleSheet.create({
     }
 
 })
+
