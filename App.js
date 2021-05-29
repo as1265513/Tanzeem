@@ -7,14 +7,20 @@ import { MainStackNavigator } from "./Navigation/StackNavigation";
 import Login from "./src/Login/Login";
 
 
-  const App = () => {
-                    return (
-                   <NavigationContainer>  
-                    <MainStackNavigator/>  
-                  </NavigationContainer> 
-                  );
- } ;
-                 
+export default function App() {
+  const [active,setActive] = useState(false)
+    useEffect(() => {
+
+        setTimeout(() => {
+            setActive(true)
+        }, 5000);
+    }, [])
+    if(!active)
+    return <View style={{flex:1}}><SplashScreen /></View>
+    else 
+    return <View style={{flex:1}}><Signup /></View>
+}
+         
 const styles = StyleSheet.create({
   container: {
     flex: 1,
