@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 
 import {
   View,
@@ -18,7 +18,15 @@ import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Input from "../../Component/Input";
 import { Theme } from "../../Theme/Theme";
 
-export default function Signup() {
+
+const useFocus = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    htmlElRef.current && htmlElRef.current.focus();
+  };
+  return [htmlElRef, setFocus];
+};
+export default function Signup({navigation}) {
   const [fullName, setFullName] = useState("");
 
   const [Password, setPassword] = useState("");
@@ -32,19 +40,27 @@ export default function Signup() {
   const [KeyboardAvoiding, setKeyboardAvoiding] = useState(false);
 
   const [fullNameValid, setFullNameValid] = useState(false);
-
+  const [EmailValid, setEmailValid] = useState(false);
   const [PasswordValid, setPasswordValid] = useState(false);
   const [CpassValid, setCpassValid] = useState(false);
-  const [EmailValid, setEmailValid] = useState(false);
+  
   const [PhoneValid, setPhoneValid] = useState(false);
   const [AddressValid, setAddressValid] = useState(false);
 
   const [setregister, setRegister] = useState(false);
 
+const [fullNameref,setFullNameref] =useFocus();
+const [emailref,setemailref] =useFocus();
+const [addressef,setaddressef] =useFocus();
+const [phoneref,setphoneref] =useFocus();
+const [passwordref,setpasswordref] =useFocus();
+const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
+
+
+
   const ValidationFunc = (type) => {
     let namereg = /^[A-Za-z ]+$/;
-    let emailreg =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let emailreg =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let numberreg = /^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/;
     let passwordreg = /(?=.{8,})/;
     let Postcode = /^[0-9]{5}$/;
@@ -123,9 +139,7 @@ export default function Signup() {
     IndieFlower: require("../../assets/fonts/IndieFlower-Regular.ttf"),
     FingerPaint: require("../../assets/fonts/Pattaya-Regular.ttf"),
   });
-  if (!loaded) {
-    return null;
-  }
+
 
   return (
     <KeyboardAvoidingView
@@ -162,6 +176,8 @@ export default function Signup() {
         />
 
         <Input
+        
+        
           firstIconName="mail-outline"
           placeholder="Enter your Email"
           margintop={10}
@@ -229,6 +245,9 @@ export default function Signup() {
         />
       </View>
 
+      
+
+      <View style={styles.sclmediaAcc}>
       <TouchableOpacity style={styles.Createbtn}>
         <Text style={styles.Createbtntxt}>Create Account</Text>
 
@@ -236,8 +255,6 @@ export default function Signup() {
           <Icon name="arrow-forward" size={30} color="#fff" />
         </View>
       </TouchableOpacity>
-
-      <View style={styles.sclmediaAcc}>
         <Text style={{ ...styles.mediatxt }}>
           Create Account Using Social Media Account
         </Text>
@@ -254,7 +271,7 @@ export default function Signup() {
             <MaterialIcon name="facebook" size={40} color="#fff" />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.goBack()}>
           <Text style={{ ...styles.mediatxt }}>already have an account?</Text>
         </TouchableOpacity>
       </View>
@@ -267,14 +284,8 @@ export default function Signup() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     height: Theme.sizes.height,
     backgroundColor: Theme.colors.lightgray,
-    ...Platform.select({
-      // android: {
-      //   marginTop: 30,
-      // },
-    }),
   },
   UpperContainer: {
     height: Theme.sizes.height / 3,
@@ -319,7 +330,7 @@ const styles = StyleSheet.create({
   Createbtn: {
     position: "absolute",
     flexDirection: "row",
-    bottom: 200,
+    top:-70,
     right: 30,
   },
   Createbtntxt: {
@@ -332,7 +343,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "#000",
   },
-  sclmediaAcc: { justifyContent: "center", alignItems: "center", top: -90 },
+  sclmediaAcc: { justifyContent: "center", alignItems: "center", top: -50 },
   mediatxt: { alignItems: "center", fontSize: 15, fontFamily: "IndieFlower" },
   mediaContainer: { flexDirection: "row", marginTop: 20 },
   mediaIcon: {

@@ -12,6 +12,9 @@ export default function Input({
   secure,
   setSecure,
   margintop,
+  paddinBottom,
+  ref,
+  onSubmitEditing,
   ...rest
 }) {
     
@@ -19,7 +22,7 @@ export default function Input({
     <View
       style={[
         styles.inpStyle,
-        { marginTop: margintop == null ? 0 : margintop },
+        { marginTop: margintop == null ? 0 : margintop, paddingBottom: paddinBottom == null ? 0 : paddinBottom},
       ]}
     >
       <Icon
@@ -30,6 +33,8 @@ export default function Input({
       />
       <TextInput
         {...rest}
+        ref={ref}
+        onSubmitEditing={onSubmitEditing}
         placeholder={placeholder}
         value={value}
         onChangeText={onChange}

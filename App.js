@@ -1,10 +1,12 @@
-import 'react-native-gesture-handler';
-import React, {Component,useEffect} from 'react';
-import { StyleSheet} from 'react-native';
 
-import { NavigationContainer } from "@react-navigation/native";
-import { MainStackNavigator } from "./Navigation/StackNavigation";
+import React, {useState,useEffect} from 'react';
+import { StyleSheet,View} from 'react-native';
+
+
 import Login from "./src/Login/Login";
+import RootStackNavigation from './src/Navigation/RootStackNavigation';
+import Signup from './src/Signup';
+import SplashScreen from './src/SplashScreen'
 
 
 export default function App() {
@@ -18,7 +20,7 @@ export default function App() {
     if(!active)
     return <View style={{flex:1}}><SplashScreen /></View>
     else 
-    return <View style={{flex:1}}><Signup /></View>
+    return <View style={{flex:1}}><RootStackNavigation /></View>
 }
          
 const styles = StyleSheet.create({
@@ -33,4 +35,3 @@ const styles = StyleSheet.create({
 
 
 
-export default App;
