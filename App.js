@@ -15,9 +15,9 @@ export default function App() {
         }, 5000);
     }, [])
     if(!active)
-    return <SplashScreen />
+    return <View style={{flex:1}}><SplashScreen /></View>
     else 
-    return <Signup />
+    return <View style={{flex:1}}><Signup /></View>
 }
 
 const styles = StyleSheet.create({

@@ -14,7 +14,7 @@ export default function Input({
   margintop,
   ...rest
 }) {
-    console.log(value)
+    
   return (
     <View
       style={[
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 10,
     alignItems: "center",
-    
+    zIndex:1
   
   },
   iconStyle: { marginLeft: 5, flex: 1 },
