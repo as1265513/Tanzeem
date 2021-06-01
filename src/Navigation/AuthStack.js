@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Signup from '../Signup';
 import Login from '../Login/Login';
 
-export default function RootStackNavigation() {
+export default function AuthStack() {
     const Stack = createStackNavigator()
     return (
        <NavigationContainer>

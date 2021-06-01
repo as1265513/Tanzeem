@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   View,
@@ -10,6 +10,7 @@ import {
   StatusBar,
   Alert,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import * as Fonts from "expo-font";
 import { useFonts } from "expo-font";
@@ -18,7 +19,6 @@ import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Input from "../../Component/Input";
 import { Theme } from "../../Theme/Theme";
 
-
 const useFocus = () => {
   const htmlElRef = useRef(null);
   const setFocus = () => {
@@ -26,7 +26,7 @@ const useFocus = () => {
   };
   return [htmlElRef, setFocus];
 };
-export default function Signup({navigation}) {
+export default function Signup({ navigation }) {
   const [fullName, setFullName] = useState("");
 
   const [Password, setPassword] = useState("");
@@ -43,24 +43,23 @@ export default function Signup({navigation}) {
   const [EmailValid, setEmailValid] = useState(false);
   const [PasswordValid, setPasswordValid] = useState(false);
   const [CpassValid, setCpassValid] = useState(false);
-  
+
   const [PhoneValid, setPhoneValid] = useState(false);
   const [AddressValid, setAddressValid] = useState(false);
 
   const [setregister, setRegister] = useState(false);
 
-const [fullNameref,setFullNameref] =useFocus();
-const [emailref,setemailref] =useFocus();
-const [addressef,setaddressef] =useFocus();
-const [phoneref,setphoneref] =useFocus();
-const [passwordref,setpasswordref] =useFocus();
-const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
-
-
+  const [fullNameref, setFullNameref] = useFocus();
+  const [emailref, setemailref] = useFocus();
+  const [addressef, setaddressef] = useFocus();
+  const [phoneref, setphoneref] = useFocus();
+  const [passwordref, setpasswordref] = useFocus();
+  const [passwordcinfirmref, setpasswordconfirmref] = useFocus();
 
   const ValidationFunc = (type) => {
     let namereg = /^[A-Za-z ]+$/;
-    let emailreg =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let emailreg =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let numberreg = /^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/;
     let passwordreg = /(?=.{8,})/;
     let Postcode = /^[0-9]{5}$/;
@@ -139,7 +138,14 @@ const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
     IndieFlower: require("../../assets/fonts/IndieFlower-Regular.ttf"),
     FingerPaint: require("../../assets/fonts/Pattaya-Regular.ttf"),
   });
-
+  if (!loaded) {
+    return (
+      <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+        <StatusBar style="auto" />
+        <ActivityIndicator size="large" color="#00ff00" />
+      </View>
+    );
+  }
 
   return (
     <KeyboardAvoidingView
@@ -176,8 +182,6 @@ const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
         />
 
         <Input
-        
-        
           firstIconName="mail-outline"
           placeholder="Enter your Email"
           margintop={10}
@@ -245,16 +249,14 @@ const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
         />
       </View>
 
-      
-
       <View style={styles.sclmediaAcc}>
-      <TouchableOpacity style={styles.Createbtn}>
-        <Text style={styles.Createbtntxt}>Create Account</Text>
+        <TouchableOpacity style={styles.Createbtn}>
+          <Text style={styles.Createbtntxt}>Create Account</Text>
 
-        <View style={styles.CreatebtnIcon}>
-          <Icon name="arrow-forward" size={30} color="#fff" />
-        </View>
-      </TouchableOpacity>
+          <View style={styles.CreatebtnIcon}>
+            <Icon name="arrow-forward" size={30} color="#fff" />
+          </View>
+        </TouchableOpacity>
         <Text style={{ ...styles.mediatxt }}>
           Create Account Using Social Media Account
         </Text>
@@ -271,8 +273,12 @@ const [passwordcinfirmref,setpasswordconfirmref] =useFocus();
             <MaterialIcon name="facebook" size={40} color="#fff" />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <TouchableOpacity
+          style={{ flexDirection: "row" }}
+          onPress={() => navigation.goBack()}
+        >
           <Text style={{ ...styles.mediatxt }}>already have an account?</Text>
+          <Text style={styles.create}>Create</Text>
         </TouchableOpacity>
       </View>
 
@@ -327,10 +333,13 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 30,
   },
+  create: {
+    color: Theme.colors.green,
+  },
   Createbtn: {
     position: "absolute",
     flexDirection: "row",
-    top:-70,
+    top: -70,
     right: 30,
   },
   Createbtntxt: {

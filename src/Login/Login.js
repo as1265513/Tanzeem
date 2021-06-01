@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image, TextInput, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image, TextInput, ScrollView, ActivityIndicator } from "react-native";
 import { TouchableOpacity, Button, Dimensions,KeyboardAvoidingView ,StatusBar} from "react-native";
 
 import { Theme } from "../../Theme/Theme";
@@ -13,7 +13,7 @@ import { useFonts } from "expo-font";
 
 
 
-//   Functional Component 
+
 
 export default function Login({navigation}) {
   const [email, setEmail] = useState("");
@@ -57,7 +57,13 @@ export default function Login({navigation}) {
     FingerPaint: require("../../assets/fonts/Pattaya-Regular.ttf"),
     urduFonts: require("../../assets/fonts/AASameerKhashab-BoldBold.ttf"),
   });
- 
+ if(!loaded)
+ {
+   return (<View style={{justifyContent:'center',alignItems:'center',flex:1}}>
+    <StatusBar style="auto"/>
+     <ActivityIndicator size="large" color="#00ff00" />
+</View>)
+ }
   return (
     <KeyboardAvoidingView
       style={styles.Container}
@@ -65,7 +71,7 @@ export default function Login({navigation}) {
       enabled={false}
       // keyboardVerticalOffset={100}
     >
-     <StatusBar />
+     <StatusBar style="auto"/>
       <View style={styles.UpperContainer}>
         <View style={styles.HeadingView}>
           <Text style={{ fontFamily:"FingerPaint",...styles.firstHeading}}>Sign in to your Account</Text>
