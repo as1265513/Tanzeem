@@ -10,6 +10,7 @@ import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import * as Fonts from "expo-font";
 import { useFonts } from "expo-font";
+import { signIn } from "../FireBase/AuthProvider";
 
 
 
@@ -121,7 +122,9 @@ export default function Login({navigation}) {
         <Text style={styles.forgot_text}>Forgot your Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.Createbtn}>
+      <TouchableOpacity style={styles.Createbtn}
+      onPress={()=>{signIn(email,password)}}
+      >
         <Text style={styles.Createbtntxt}>Sign in</Text>
 
         <View style={styles.CreatebtnIcon}>

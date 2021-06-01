@@ -1,46 +1,44 @@
-import React, { useState, createContext } from "react";
 
 
 
+import * as firebase from 'firebase';
+import 'firebase/firestore';
+import {Alert} from 'react-native';
 
-import Firebase,{ storage, db } from "./FirebaseCofigfile";
+export async function registration(email, password, fullName,Address,Phone) {
+  try {
+    await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const currentUser = firebase.auth().currentUser;
 
-export const AuthContext= createContext()
+    const db = firebase.firestore();
+    db.collection('users')
+      .doc(currentUser.uid)
+      .set({
+        email: currentUser.email,
+        fullName: fullName,
+        address: Address,
+        phone : Phone,
 
-export const AuthProvider=({Childeren})=>{
-  const [user, setUser] = useState(null);
+      });
+  } catch (err) {
+    Alert.alert('There is something wrong!', err.message);
+  }
+}
 
-  return(
-      <AuthContext.Provider
-      value={{
-          user,
-          setUser,
-          login:async (email,password)=>{
-              try{
-                await Firebase.auth().signInWithEmailAndPassword(emai,password);
-              }catch(e)
-              {
-                if (Firebase.auth.AuthCredential) {
-              alert("Please Enter correct Email and Password");
-            } else {
-              alert(e);
-            }
-              }
-          },
-          register:async (email,password)=>{
-              try{
-                  await Firebase.auth().createUserWithEmailAndPassword()
-              }catch(e)
-              {
-                  console.log(e)
-              }
+export async function signIn(email, password) {
+  try {
+    await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password);
+  } catch (err) {
+    Alert.alert('There is something wrong!', err.message);
+  }
+}
 
-          }
-      }}
-
-
-      >
-          {Childeren}
-      </AuthContext.Provider>
-  )
+export async function loggingOut() {
+  try {
+    await firebase.auth().signOut();
+  } catch (err) {
+    Alert.alert('There is something wrong!', err.message);
+  }
 }

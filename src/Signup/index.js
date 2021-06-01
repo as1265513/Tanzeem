@@ -19,6 +19,9 @@ import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Input from "../../Component/Input";
 import { Theme } from "../../Theme/Theme";
 
+import Firebase from '../FireBase/FirebaseCofigfile'
+import { registration } from "../FireBase/AuthProvider";
+
 const useFocus = () => {
   const htmlElRef = useRef(null);
   const setFocus = () => {
@@ -28,13 +31,12 @@ const useFocus = () => {
 };
 export default function Signup({ navigation }) {
   const [fullName, setFullName] = useState("");
-
   const [Password, setPassword] = useState("");
   const [Cpass, setCpass] = useState("");
   const [Email, setEmail] = useState("");
   const [Phone, setPhone] = useState("+92");
-
   const [Address, setAddress] = useState("");
+
   const [secureTextEntry, setsScureTextEntry] = useState(true);
   const [secureTextEntry1, setsScureTextEntry1] = useState(true);
   const [KeyboardAvoiding, setKeyboardAvoiding] = useState(false);
@@ -47,14 +49,14 @@ export default function Signup({ navigation }) {
   const [PhoneValid, setPhoneValid] = useState(false);
   const [AddressValid, setAddressValid] = useState(false);
 
-  const [setregister, setRegister] = useState(false);
+  const [register, setRegister] = useState(false);
 
-  const [fullNameref, setFullNameref] = useFocus();
-  const [emailref, setemailref] = useFocus();
-  const [addressef, setaddressef] = useFocus();
-  const [phoneref, setphoneref] = useFocus();
-  const [passwordref, setpasswordref] = useFocus();
-  const [passwordcinfirmref, setpasswordconfirmref] = useFocus();
+
+
+
+
+   
+
 
   const ValidationFunc = (type) => {
     let namereg = /^[A-Za-z ]+$/;
@@ -101,13 +103,13 @@ export default function Signup({ navigation }) {
         }
         break;
       case "ConfirmPasswod":
-        if (passwordreg.test(Cpass) && Cpass.length >= 8 && Password == Cpass) {
+        if (passwordreg.test(Cpass) && Cpass.length >= 8) {
           setCpassValid(true);
         } else {
           setCpassValid(false);
         }
         break;
-      case "nn":
+      default:
         if (
           fullNameValid &&
           PhoneValid &&
@@ -244,13 +246,23 @@ export default function Signup({ navigation }) {
           onBlur={() => setKeyboardAvoiding(false)}
           onEndEditing={() => {
             ValidationFunc("ConfirmPasswod");
-            ValidationFunc("nn");
+            
           }}
         />
       </View>
 
       <View style={styles.sclmediaAcc}>
-        <TouchableOpacity style={styles.Createbtn}>
+        <TouchableOpacity style={styles.Createbtn}
+        
+        onPress={()=>{
+          ValidationFunc()
+          if(register)
+          {
+            registration(Email,Password,fullName,Address,Phone)
+           
+          }
+        }}
+        >
           <Text style={styles.Createbtntxt}>Create Account</Text>
 
           <View style={styles.CreatebtnIcon}>
@@ -278,10 +290,9 @@ export default function Signup({ navigation }) {
           onPress={() => navigation.goBack()}
         >
           <Text style={{ ...styles.mediatxt }}>already have an account?</Text>
-          <Text style={styles.create}>Create</Text>
+          <Text style={styles.create}>Login</Text>
         </TouchableOpacity>
       </View>
-
       {/* </ScrollView> */}
     </KeyboardAvoidingView>
   );

@@ -8,11 +8,11 @@ import Login from '../Login/Login';
 export default function AuthStack() {
     const Stack = createStackNavigator()
     return (
-       <NavigationContainer>
+       
            <Stack.Navigator screenOptions={{headerShown:false}}>
                <Stack.Screen name="SignIn" component={Login} />
                <Stack.Screen name="Sign Up" component={Signup} />
            </Stack.Navigator>
-       </NavigationContainer>
+       
     )
 }

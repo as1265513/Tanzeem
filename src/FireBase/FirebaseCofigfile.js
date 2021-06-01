@@ -1,4 +1,14 @@
 import * as Firebase from 'firebase'
+import { LogBox } from 'react-native';
+import _ from 'lodash';
+
+LogBox.ignoreLogs(['Setting a timer']);
+const _console = _.clone(console);
+console.warn = message => {
+  if (message.indexOf('Setting a timer') <= -1) {
+    _console.warn(message);
+  }
+};
 
 const firebaseConfig = {
     apiKey: "AIzaSyCmtnuTJfcytQFZ24GdZzMKrkzekkjDTmU",
@@ -10,9 +20,16 @@ const firebaseConfig = {
     measurementId: "G-F8C8DH4BQW"
   };
 
-  Firebase.initializeApp(firebaseConfig);
+ 
 
+  if (!Firebase.apps.length) {
+    console.log('Connected with Firebase')
+    Firebase.initializeApp(firebaseConfig);
+  }
   export const db=Firebase.firestore()
   export const storage = Firebase.storage()
+  
+
+
 
   export default Firebase;
