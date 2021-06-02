@@ -11,6 +11,7 @@ import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import * as Fonts from "expo-font";
 import { useFonts } from "expo-font";
 import { signIn } from "../FireBase/AuthProvider";
+import * as Google from 'expo-google-app-auth';
 
 
 
@@ -51,6 +52,28 @@ export default function Login({navigation}) {
         break;
     }
   };
+
+  const  signInWithGoogleAsync=async()=> {
+    try {
+      const result = await Google.logInAsync({
+        androidClientId: "799318648334-7il3sg3ukdcf5dhk38uso1ucnsadh9ff.apps.googleusercontent.com",
+        iosClientId: "799318648334-8fvco97cik2l17k8ls0l9ktu8pao6cvf.apps.googleusercontent.com",
+        scopes: ['profile', 'email'],
+        // iosStandaloneAppClientId:'AIzaSyCSN6bAQedCwyV0P-4DRSOoYqdq8SV_O9A',
+        // androidStandaloneAppClientId:'AIzaSyDjERaU7k2en0xycg7fmEaEkmzxQ97hVqQ',
+      });
+  
+      if (result.type === 'success') {
+
+        console.log(result)
+        return result.accessToken;
+      } else {
+        return { cancelled: true };
+      }
+    } catch (e) {
+      return { error: true };
+    }
+  }
 
   const [loaded] = useFonts({
     Pattaya: require("../../assets/fonts/Pattaya-Regular.ttf"),
@@ -137,7 +160,9 @@ export default function Login({navigation}) {
           Sing in by using your social media Account
         </Text>
         <View style={styles.mediaContainer}>
-          <TouchableOpacity style={styles.mediaIcon}>
+          <TouchableOpacity style={styles.mediaIcon}
+          onPress={()=>signInWithGoogleAsync()}
+          >
             <Icon name="logo-google" size={40} color="#fff" />
           </TouchableOpacity>
 
