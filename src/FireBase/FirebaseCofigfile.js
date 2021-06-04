@@ -10,16 +10,18 @@ console.warn = message => {
   }
 };
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCmtnuTJfcytQFZ24GdZzMKrkzekkjDTmU",
-    authDomain: "tanzeemapp.firebaseapp.com",
-    projectId: "tanzeemapp",
-    storageBucket: "tanzeemapp.appspot.com",
-    messagingSenderId: "799318648334",
-    appId: "1:799318648334:web:4778000730db0587cdfe5f",
-    measurementId: "G-F8C8DH4BQW"
-  };
 
+
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDIQPj7p2J7FE5MU45bkUyfXOnHJ9JL5b0",
+  authDomain: "tanzeemapp.firebaseapp.com",
+  projectId: "tanzeemapp",
+  storageBucket: "tanzeemapp.appspot.com",
+  messagingSenderId: "799318648334",
+  appId: "1:799318648334:web:4778000730db0587cdfe5f",
+  measurementId: "G-F8C8DH4BQW"
+};
  
 
   if (!Firebase.apps.length) {

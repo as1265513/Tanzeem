@@ -5,11 +5,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    // "splash": {
-    //   "image": "./assets/splash.png",
-    //   "resizeMode": "contain",
-    //   "backgroundColor": "#119ef1"
-    // },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -23,7 +18,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.as1265513.Tanzeem"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -44,6 +40,5 @@
         "svg"
       ]
     }
-    
   }
 }

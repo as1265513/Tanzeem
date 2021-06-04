@@ -12,14 +12,17 @@ import * as Fonts from "expo-font";
 import { useFonts } from "expo-font";
 import { signIn } from "../FireBase/AuthProvider";
 import * as Google from 'expo-google-app-auth';
+import Firebase,{storage} from '../FireBase/FirebaseCofigfile'
+import { doc, setDoc } from "firebase/firestore"; 
 
+import * as firebase from 'firebase';
 
 
 
 
 export default function Login({navigation}) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("as1265513@gmail.com");
+  const [password, setPassword] = useState("12345678");
   const [EmailValid, setEmailValid] = useState(false);
   const [PasswordValid, setPasswordValid] = useState(false);
   const [secureTextEntry, setsScureTextEntry] = useState(true);
@@ -53,19 +56,106 @@ export default function Login({navigation}) {
     }
   };
 
+
+
+
+  const isUserEqual = (googleUser, firebaseUser) => {
+    if (firebaseUser) {
+      var providerData = firebaseUser.providerData;
+      for (var i = 0; i < providerData.length; i++) {
+        if (
+          providerData[i].providerId === Firebase.auth.GoogleAuthProvider.PROVIDER_ID && providerData[i].uid === googleUser.getBasicProfile().getId()
+        ) {
+          // We don't need to reauth the Firebase connection.
+          return true;}}}return false; };
+  const onSignIn = googleUser => {
+    const db = firebase.firestore();
+    // console.log('Google Auth Response', googleUser);
+  
+    // We need to register an Observer on Firebase Auth to make sure auth is initialized.
+    var unsubscribe = Firebase.auth().onAuthStateChanged(
+      function(firebaseUser) {
+        unsubscribe();
+        // Check if we are already signed-in Firebase with the correct user.
+        if (!isUserEqual(googleUser, firebaseUser)) {
+          // Build Firebase credential with the Google ID token.
+          var credential = Firebase.auth.GoogleAuthProvider.credential(
+            googleUser.idToken,
+            googleUser.accessToken
+          );
+          // Sign in with credential from the Google user.
+        
+
+          Firebase
+            .auth()
+            .signInWithCredential(credential)
+            .then(async(result)=> {
+              console.log("reached")
+              console.log('user signed in ');
+              if (result.additionalUserInfo.isNewUser) {
+                console.log(result.user.uid)
+
+                  let UserInfo = {
+                    gmail: result.user.email,
+                    profile_picture: result.additionalUserInfo.profile.picture,
+                    first_name: result.additionalUserInfo.profile.given_name,
+                    last_name: result.additionalUserInfo.profile.family_name,
+                    created_at: Date.now()
+                  }
+                  db.collection('users')
+                  .doc(result.user.uid)
+                  .set(UserInfo);
+                 
+                
+                // db.collection("users")
+                //     .doc(result.user.uid)
+                //     .add()
+                //     .catch(function (error) {
+                //       console.log(error)
+                //     })
+                
+              } else {
+                
+                  db.collection("users")
+                  .doc( result.user.uid)
+                  .update({
+                    last_logged_in: Date.now()
+                  });
+              }
+            })
+            .catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // The email of the user's account used.
+              var email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              var credential = error.credential;
+              // ...
+              // console.log(error)
+            });
+        } else {
+          console.log('User already signed-in Firebase.');
+        }
+      }
+    );
+  };
+
   const  signInWithGoogleAsync=async()=> {
     try {
       const result = await Google.logInAsync({
-        androidClientId: "799318648334-7il3sg3ukdcf5dhk38uso1ucnsadh9ff.apps.googleusercontent.com",
+        androidClientId: "799318648334-vcmuccckvn3862rdc4lfmcj027pad2ts.apps.googleusercontent.com",
         iosClientId: "799318648334-8fvco97cik2l17k8ls0l9ktu8pao6cvf.apps.googleusercontent.com",
         scopes: ['profile', 'email'],
-        // iosStandaloneAppClientId:'AIzaSyCSN6bAQedCwyV0P-4DRSOoYqdq8SV_O9A',
-        // androidStandaloneAppClientId:'AIzaSyDjERaU7k2en0xycg7fmEaEkmzxQ97hVqQ',
+        iosStandaloneAppClientId:'AIzaSyCSN6bAQedCwyV0P-4DRSOoYqdq8SV_O9A',
+        androidStandaloneAppClientId:'AIzaSyDjERaU7k2en0xycg7fmEaEkmzxQ97hVqQ',
+      
       });
   
       if (result.type === 'success') {
+        // signInWithGoogleAsync(result)
+        onSignIn(result)
 
-        console.log(result)
         return result.accessToken;
       } else {
         return { cancelled: true };
