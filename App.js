@@ -2,9 +2,9 @@
 import React, {useState,useEffect} from 'react';
 import { StyleSheet,View} from 'react-native';
 import MainActivity from './src';
-import Login from "./src/Login/Login";
+
 import AuthStack from './src/Navigation/AuthStack';
-import Signup from './src/Signup';
+import Signup from './src/Auth';
 import SplashScreen from './src/SplashScreen'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from "@react-navigation/stack"
