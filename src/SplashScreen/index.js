@@ -9,7 +9,7 @@ import {
   StatusBar
 } from "react-native";
 
-import Login from "../Login/Login";
+import Login from "../Auth/Login";
 import { Theme } from "../../Theme/Theme";
 
  
@@ -34,6 +34,7 @@ import { Theme } from "../../Theme/Theme";
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    backgroundColor:"#fff",
     // ...Platform.select({
     //   android: {
     //     marginTop: 30,
@@ -60,6 +61,6 @@ const styles = StyleSheet.create({
   logoStyle: {
     height: 250,
     width: 250,
-    backgroundColor: Theme.colors.White,
+    backgroundColor: "#fff",
   },
 });

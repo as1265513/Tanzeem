@@ -21,7 +21,7 @@ import * as firebase from 'firebase';
 
 
 export default function Login({navigation}) {
-  const [email, setEmail] = useState("as1265513@gmail.com");
+  const [email, setEmail] = useState("ua1265513@gmail.com");
   const [password, setPassword] = useState("12345678");
   const [EmailValid, setEmailValid] = useState(false);
   const [PasswordValid, setPasswordValid] = useState(false);
@@ -147,8 +147,8 @@ export default function Login({navigation}) {
         androidClientId: "799318648334-vcmuccckvn3862rdc4lfmcj027pad2ts.apps.googleusercontent.com",
         iosClientId: "799318648334-8fvco97cik2l17k8ls0l9ktu8pao6cvf.apps.googleusercontent.com",
         scopes: ['profile', 'email'],
-        iosStandaloneAppClientId:'AIzaSyCSN6bAQedCwyV0P-4DRSOoYqdq8SV_O9A',
-        androidStandaloneAppClientId:'AIzaSyDjERaU7k2en0xycg7fmEaEkmzxQ97hVqQ',
+        // iosStandaloneAppClientId:'AIzaSyCSN6bAQedCwyV0P-4DRSOoYqdq8SV_O9A',
+        // androidStandaloneAppClientId:'AIzaSyDjERaU7k2en0xycg7fmEaEkmzxQ97hVqQ',
       
       });
   
@@ -161,7 +161,7 @@ export default function Login({navigation}) {
         return { cancelled: true };
       }
     } catch (e) {
-      return { error: true };
+      console.log(e)
     }
   }
 

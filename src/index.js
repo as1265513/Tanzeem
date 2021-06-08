@@ -4,9 +4,9 @@ import { ActivityIndicator, StyleSheet,View} from 'react-native';
 import { useAnimatedStyle } from 'react-native-reanimated';
 
 
-import Login from "./Login/Login";
+import Login from "./Auth/Login";
 import AuthStack from './Navigation/AuthStack';
-import Signup from './Signup';
+import Signup from './Auth';
 import SplashScreen from './SplashScreen'
 import Firebase from '../src/FireBase/FirebaseCofigfile'
 import { Theme } from '../Theme/Theme';
