@@ -1,179 +1,82 @@
-import React from 'react';
-import {StyleSheet,Text, View, Image, ScrollView, ImageBackground} from "react-native";
+import React,{useState} from 'react';
+import {SafeAreaView,ImageBackground, Text, FlatList , StyleSheet, View, StatusBar, SectionList,Image } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Feather';
+const dummyArray = [
+  {id: '1', photo : require("../../assets/green.jpg")  },
+  {id: '2', photo : require("../../assets/new1.jpg")  },
+  {id: '3', photo : require("../../assets/new.jpg")  },
+  {id: '4', photo : require("../../assets/code2.jpg")  },
+  {id: '5', photo : require("../../assets/code.jpg")  },
+ 
+];
 
 const Story = () => {
+  const [listItems, setListItems] = useState(dummyArray);
 
-   return(
-       <> 
-          <View style={styles.container}>
-              
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} 
-                          style={{paddingLeft:11}}>
+  const ItemView = ({item}) => {
+    return (
+      // FlatList Item
+      <View>
+       <Image 
+                source={item.photo}
+                style={{
+                    width:120,
+                    height:150,
+                    borderWidth:2,
+                    borderColor:'#C8C8C8',
+                }} 
 
-                          <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/green.jpg')}
-                              />
+                />
+      </View>
+    );
+  };
 
-                          </View>
-
-                          <View style={styles.cardUser}>
-
-                                <Icon name="plus" size={30} color="black" /> 
-                               
-                          </View>
-
-                          <View style={styles.cardFooter}>
-                                 
-                                 <Text>Add To Story</Text>
-                            
-                          </View>
-                          
-                          
-                          <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/new1.jpg')}
-                              />
-
-                          </View>
-
-                          <View style={styles.cardUser}>
-
-                                <Icon name="plus" size={30} color="black" /> 
-                               
-                          </View>
-
-
-                            <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/new.jpg')}
-                              />
-
-                          </View>
-
-                          <View style={styles.cardUser}>
-
-                                <Icon name="plus" size={30} color="black" /> 
-                               
-                          </View>
-
-                            <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/green.jpg')}
-                              />
-
-                          </View>
-
-                        
-
-                            <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/code.jpg')}
-                              />
-
-                          </View>
-
-                          
-
-                            <View style={styles.card}>
-                              
-                              <Image  style={styles.cardStory}    
-                              source={require('../../assets/code2.jpg')}
-                              />
-
-                          </View>
+  const ItemSeparatorView = () => {
+    return (
+      // FlatList Item Separator
+      <View
+          style={{
+              height: 150,
+              width: 10,
+            //  backgroundColor: '#C8C8C8'
+          }}
+      />
+    );
+  };
 
 
 
-
-              </ScrollView>
- 
-
-
-          </View>
-                    
-             <View style={styles.bottom} />
-
-       </>
-   );
-
-}
-
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <FlatList
+         horizontal
+          data={listItems}
+          //data defined in constructor
+          ItemSeparatorComponent={ItemSeparatorView}
+          //Item Separator View
+          renderItem={ItemView}
+          keyExtractor={(index) => index.toString()}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-       
-       container:{
-              width: "100%",
-	       height: 162,
-	       flexDirection: "row",
-	       alignItems: "center",
-              //backgroundColor:'orange'
-              
-       },
-
-       card:{
-             
-              width:106,
-              height: 140,
-             // backgroundColor:'red',
-              marginRight:8,
-              position:'relative'
-       },
-
-       cardStory:{
-
-              width:'100%',
-              height:140,
-              borderRadius:12
-
-       },
-
-       cardUser:{
-
-              position:'absolute',
-              top:3,
-              left:3,
-              backgroundColor:'#ffffff',
-              borderRadius:20,
-              width:35,
-              height:35,
-              alignItems:'center',
-              justifyContent:'center'
-
-       },
-
-       cardFooter:{
-
-              width:'100%',
-              position:'absolute',
-              bottom:12,
-              //marginLeft:,
-              backgroundColor:'white'
-       },
-
-       text1:{
-
-              fontSize:15,
-              fontWeight:'bold',
-              color:'black',
-              marginLeft:10
-       },
-
-        bottom:{
-
-          width: "100%",
-	   height: 9,
-	   backgroundColor: "#f0f2f5",
-
-              }
-
+  container: {
+    justifyContent: 'center',
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+    marginTop: 30,
+  },
+  item: {
+    width:50,
+    height: 44,
+    
+  },
 });
 
 
